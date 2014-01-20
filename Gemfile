@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0.beta1'
@@ -39,6 +39,7 @@ gem 'spring',        group: :development
 gem 'devise'
 
 gem "paperclip", "~> 3.0"
+gem 'aws-sdk'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -46,6 +47,9 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
 end
+
+gem 'rails_12factor', group: :production
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

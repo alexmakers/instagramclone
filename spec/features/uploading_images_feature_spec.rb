@@ -10,7 +10,7 @@ describe 'uploading photos' do
     visit '/posts/new'
 
     fill_in 'Title', with: 'My cool photo'
-    attach_file 'Image', Rails.root.join('spec/images/old-man1.jpg')
+    attach_file 'Image', Rails.root.join('spec/images/placehold.gif')
     click_button 'Create Post'
 
     expect(page).to have_css 'img.instagram-upload'
