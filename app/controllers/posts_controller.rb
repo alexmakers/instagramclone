@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.for_tag_or_all params[:tag_id]
   end
 
   def edit

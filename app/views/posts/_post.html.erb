@@ -9,5 +9,5 @@
 <%= render post.comments %>
 
 <% post.tags.each do |tag| %>
-  <%= tag %>
+  <%= link_to tag, tag_posts_path(tag) %>
 <% end %>
