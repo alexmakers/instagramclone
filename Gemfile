@@ -49,6 +49,7 @@ group :development, :test do
 end
 
 gem 'rails_12factor', group: :production
+gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
