@@ -33,6 +33,8 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
+  config.filter_run_excluding slow: true
+
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:

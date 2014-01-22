@@ -51,6 +51,7 @@ end
 
 gem 'rails_12factor', group: :production
 gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

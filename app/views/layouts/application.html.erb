@@ -46,27 +46,9 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#">Blogapp</a>
-        <div class="nav-collapse collapse navbar-responsive-collapse">
+        <div class="nav-collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-9">
-          <%= bootstrap_flash %>
-          <%= yield %>
-        </div>
-        <div class="col-lg-3">
-          <div class="well sidebar-nav">
-            <h3>Account</h3>
-            <ul class="nav nav-list">                   
-              <% if user_signed_in? %>
+            <% if user_signed_in? %>
                 <li>
                 <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
                 </li>
@@ -85,9 +67,17 @@
                 <%= link_to('Register', new_user_registration_path)  %>
                 </li>
               <% end %>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
       </div><!--/row-->
 
       <footer>

@@ -6,7 +6,7 @@ describe 'uploading photos' do
     login
   end
   
-  it 'allows me to attach a photo on the new post form' do
+  it 'allows me to attach a photo on the new post form', slow: true do
     visit '/posts/new'
 
     fill_in 'Title', with: 'My cool photo'

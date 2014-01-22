@@ -16,10 +16,7 @@ class Post < ActiveRecord::Base
   end
 
   def tag_names=(tag_names)
-    self.tags = tag_names.split(/,\s?/).map do |tag_name|
-      tag_name.downcase.gsub(/[^a-z]/, '')
-      Tag.find_or_create_by(name: tag_name)
-    end
+    self.tags = Tag.find_or_create_from_tag_names(tag_names)
   end
 
   def self.for_tag_or_all(tag_name)
