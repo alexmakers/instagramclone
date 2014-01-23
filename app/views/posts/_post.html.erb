@@ -2,14 +2,39 @@
   <h1><%= link_to post.title, post_path(post) %></h1>
   <%= image_tag post.image.url(:thumb), class: 'instagram-upload' %></h1>
   <p><%= post.content %></p>
-  <%= link_to 'Edit post', edit_post_path(post) %>
-  <%= link_to 'Delete post', post_path(post), method: :delete %>
-  <%= link_to 'Add a comment', new_post_comment_path(post) %>
 
-  <h2>Comments</h2>
-  <%= render post.comments %>
-
-  <% post.tags.each do |tag| %>
-    <%= link_to tag, tag_posts_path(tag) %>
+  <% if post.user == current_user %>
+    <%= link_to 'Edit post', edit_post_path(post) %>
+    <%= link_to 'Delete post', post_path(post), method: :delete %>
   <% end %>
+
+  <div class='tags'>
+    <% post.tags.each do |tag| %>
+      <%= link_to tag, tag_posts_path(tag) %>
+    <% end %>
+  </div>
+
+  <%= link_to 'Add a comment', new_post_comment_path(post) %>
+  <br>
+
+  <% if post.comments.any? %>
+    <div class='post-comments'>
+
+      <%= link_to 'Show comments', '#', class: 'btn btn-success show-comments', data: { url: post_comments_path(post, format: :json) } %>
+      <div class='spinner'>
+        <img src='http://www.iab.net/extra/adquickref/spinnerLarge.gif'>
+      </div>
+
+      <script type='text/template' id='comment-template'>
+        <div class='well'>
+          <h4>{{ commenter }}</h4>
+          <p>{{ text }}</p>
+        </div>
+      </script>
+      <div class='comments-container'></div>
+
+    </div>
+  <% end %>
+
+
 </div>

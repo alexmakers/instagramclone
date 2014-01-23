@@ -15,5 +15,5 @@
 //= require jquery.ui.all
 //= require inputosaurus
 //= require twitter/bootstrap
-//= require turbolinks
+//= require mustache
 //= require_tree .

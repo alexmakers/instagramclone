@@ -47,6 +47,7 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
+  gem 'poltergeist'
 end
 
 gem 'rails_12factor', group: :production

@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
-  has_many :comments
+  belongs_to :user
+
+  has_many :comments, dependent: :destroy
   has_attached_file :image, 
                     styles: { thumb: "300x300>" },
                     storage: :s3,
