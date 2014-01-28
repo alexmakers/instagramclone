@@ -6,6 +6,8 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   config.secret_key = '0517f28313002d0f9d92823e312b7cc3c3dd8c417daa27cde30a825d535dd99ddc7e09491d9b77565f2cdc87f289399a11142fed09972deca8db672d47e4b94b'
 
+  config.omniauth :twitter, Rails.application.secrets.twitter_key, Rails.application.secrets.twitter_secret
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class

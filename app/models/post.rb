@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  after_create :send_new_post_email
   belongs_to :user
 
   has_many :comments, dependent: :destroy
@@ -23,5 +24,9 @@ class Post < ActiveRecord::Base
 
   def self.for_tag_or_all(tag_name)
     tag_name ? Tag.find_by(name: tag_name).posts : all
+  end
+
+  def send_new_post_email
+    PostMailer.new_post(self, user).deliver!
   end
 end
