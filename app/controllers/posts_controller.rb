@@ -42,6 +42,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def search
+    @posts = Post.where("title ILIKE ?", "%#{params[:query]}%")
+    render 'index'
+  end
+
   private
 
   def fetch_user_post

@@ -13,13 +13,28 @@ class User < ActiveRecord::Base
 
     User.find_or_create_by(credentials) do |user|
       user.name = auth[:info][:name]
-      user.password = pwd
-      user.password_confirmation = pwd
     end
   end
 
+  def from_twitter?
+    provider == 'twitter'
+  end
+
   def email_required?
-    return false if provider == 'twitter'
+    return false if from_twitter?
     super
+  end
+
+  def password_required?
+    return false if from_twitter?
+    super
+  end
+
+  def update_with_password(params, *options)
+    if from_twitter?
+      update_attributes(params, *options)
+    else
+      super
+    end
   end
 end

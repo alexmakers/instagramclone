@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
 
   def nag_for_email
     if user_signed_in? && current_user.email.blank?
-      flash[:error] = 'Please fill in your email'
-      # redirect_to edit_user_registration_path
+      flash[:alert] = 'Please enter your email address'
+      redirect_to edit_user_registration_path
     end
   end
 end
